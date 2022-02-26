@@ -7,8 +7,7 @@ function flipSort(array) {
 
   // Iterate through array from last index to first
   for (let i = array.length - 1; i >= 0; i--) {
-    // If largest number is already at its proper index, skip and go to next index
-    // NO FLIP!
+    // If largest number is already at its proper index, skip and go to next index without flipping
     if (array[i] === i + 1) {
       continue;
     }
@@ -17,7 +16,8 @@ function flipSort(array) {
     let maxNum = Math.max(...array.slice(0, i));
     let maxIndex = array.indexOf(maxNum);
 
-    // If largest number is at index 0, flip entire array up to properly placed numbers
+    // If largest number is at index 0, flip entire array up to
+    // already placed numbers at right of array,
     // and include number of elements flipped (k)
     if (maxNum === array[0]) {
       array = [...array.slice(0, i + 1).reverse(), ...array.slice(i + 1)];
